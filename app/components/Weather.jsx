@@ -59,11 +59,11 @@ var Weather = React.createClass({
         return <WeatherMessage temp={temp} location={location}/>;
       }
     }
-
+    var self = this;
     function renderError () {
       if (typeof errorMessage === 'string') {
         return (
-          <ErrorModal message={errorMessage}/>
+          <ErrorModal message={errorMessage} onDismiss={() => self.setState({errorMessage: undefined})}/>
         )
       }
     }
